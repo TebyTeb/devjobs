@@ -54,17 +54,15 @@
         </div>
 
         <div class="my-4 flex items-center justify-between">
-            @if (Route::has('password.request'))
-                <x-link :href="route('password.request')">
-                    Olvidaste tu password
-                </x-link>
+            <x-link :href="route('password.request')">
+                Olvidaste tu password
+            </x-link>
 
-                <x-link :href="route('register')">
-                    Crear Cuenta
-                </x-link>
-            @endif
-
+            <x-link :href="route('register')">
+                Crear Cuenta
+            </x-link>
         </div>
+
         <x-primary-button class="w-full justify-center">
             {{ __('iniciar sesión') }}
         </x-primary-button>
