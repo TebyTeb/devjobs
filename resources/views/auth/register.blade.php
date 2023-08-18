@@ -35,7 +35,7 @@
                 :messages="$errors->get('email')" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Rol Select -->
         <div class="mt-4">
             <x-input-label for="rol"
                 :value="__('¿Qué tipo de cuenta deseas en DevJobs?')" />
@@ -49,15 +49,9 @@
                 <option value="2">Recruiter - Publicar empleos</option>
 
             </select>
-            {{-- <x-text-input class="mt-1 block w-full"
-                id="email"
-                name="email"
-                type="email"
-                :value="old('email')"
-                required
-                autocomplete="username" /> --}}
+
             <x-input-error class="mt-2"
-                :messages="$errors->get('email')" />
+                :messages="$errors->get('rol')" />
         </div>
 
         <!-- Password -->
