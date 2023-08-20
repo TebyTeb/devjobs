@@ -21,6 +21,7 @@
 
     <!-- Livewire -->
     @livewireStyles
+    @stack('styles')
 </head>
 
 <body class="font-sans antialiased">
@@ -44,6 +45,7 @@
 
     <!-- Livewire -->
     @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
