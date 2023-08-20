@@ -1,5 +1,5 @@
 <form class="space-y-5 md:w-1/2"
-    wire:submit.prevent='crearVacante'>
+    wire:submit.prevent='editarVacante'>
 
     <!-- Nombre de Vacante -->
     <div>
@@ -124,17 +124,24 @@
         <x-text-input class="mt-1 block w-full"
             id="imagen"
             type="file"
-            wire:model="imagen"
+            wire:model="imagen_nueva"
             accept="image/*" />
 
         <div class="my-5 w-96">
-            @if ($imagen)
-                Imagen:
-                <img src="{{ $imagen->temporaryUrl() }}" alt="Imagen de la vacante">
+            <x-input-label :value="__('Imagen Actual')" />
+            <img src="{{ asset('storage/vacantes/' . $imagen) }}"
+                alt="{{ 'Imagen vacante ' . $titulo }}">
+        </div>
+
+        <div class="my-5 w-96">
+            @if ($imagen_nueva)
+                <x-input-label :value="__('Imagen Nueva')" />
+                <img src="{{ $imagen_nueva->temporaryUrl() }}"
+                    alt="Imagen de la vacante">
             @endif
         </div>
 
-        @error('imagen')
+        @error('imagen_nueva')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
         <!-- Alternativa con componentes de Blade -->
@@ -144,7 +151,7 @@
 
     <!-- Envío de formulario -->
     <x-primary-button>
-        crear vacante
+        guardar cambios
     </x-primary-button>
 
 </form>

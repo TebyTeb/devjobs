@@ -9,6 +9,10 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    //* Devuelve los campos especificados en el formato especificado
+    protected $casts = [
+        'ultimo_dia' => 'date'
+    ];
     protected $fillable = [
         'titulo',
         'salario_id',
