@@ -7,12 +7,17 @@
             :value="__('titulo vacante')" />
         <x-text-input class="mt-1 block w-full"
             id="titulo"
-            wire:model="titulo"
             type="text"
+            wire:model="titulo"
             :value="old('titulo')"
             placeholder="El título de tu vacante" />
-        <x-input-error class="mt-2"
-            :messages="$errors->get('titulo')" />
+
+        @error('titulo')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('titulo')" /> --}}
     </div>
 
     <!-- Salario de Vacante -->
@@ -26,12 +31,16 @@
 
             <option value="">--Seleccione --</option>
             @foreach ($salarios as $salario)
-                <option value="{{$salario->id}}">{{$salario->salario}}</option>
+                <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
             @endforeach
 
         </select>
-        <x-input-error class="mt-2"
-            :messages="$errors->get('salario')" />
+        @error('salario')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('salario')" /> --}}
     </div>
 
     <!-- categoria de Vacante -->
@@ -45,12 +54,16 @@
 
             <option value="">--Seleccione --</option>
             @foreach ($categorias as $categoria)
-                <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
             @endforeach
 
         </select>
-        <x-input-error class="mt-2"
-            :messages="$errors->get('categoria')" />
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('categoria')" /> --}}
     </div>
 
     <!-- Empresa de Vacante -->
@@ -59,12 +72,16 @@
             :value="__('empresa')" />
         <x-text-input class="mt-1 block w-full"
             id="empresa"
-            wire:model="empresa"
             type="text"
+            wire:model="empresa"
             :value="old('empresa')"
             placeholder="Ej. Netflix, Uber, Shopify" />
-        <x-input-error class="mt-2"
-            :messages="$errors->get('empresa')" />
+        @error('empresa')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('empresa')" /> --}}
     </div>
 
     <!-- fecha validez de Vacante -->
@@ -73,11 +90,15 @@
             :value="__('último día para postularse')" />
         <x-text-input class="mt-1 block w-full"
             id="ultimo_dia"
-            wire:model="ultimo_dia"
             type="date"
+            wire:model="ultimo_dia"
             :value="old('ultimo_dia')" />
-        <x-input-error class="mt-2"
-            :messages="$errors->get('ultimo_dia')" />
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('ultimo_dia')" /> --}}
     </div>
 
     <!-- descripción de Vacante -->
@@ -85,11 +106,15 @@
         <x-input-label for="descripcion"
             :value="__('descripción del puesto')" />
         <textarea
-            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600 h-72"
+            class="h-72 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
             wire:model="descrupcion"
             placeholder="descripción general del puesto, experiencia"></textarea>
-        <x-input-error class="mt-2"
-            :messages="$errors->get('descripcion')" />
+        @error('descripcion')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('descripcion')" /> --}}
     </div>
 
     <!-- Imagen de Vacante -->
@@ -98,10 +123,23 @@
             :value="__('imagen')" />
         <x-text-input class="mt-1 block w-full"
             id="imagen"
+            type="file"
             wire:model="imagen"
-            type="file" />
-        <x-input-error class="mt-2"
-            :messages="$errors->get('imagen')" />
+            accept="image/*" />
+
+        <div class="my-5 w-96">
+            @if ($imagen)
+                Imagen:
+                <img src="{{ $imagen->temporaryUrl() }}" alt="Imagen de la vacante">
+            @endif
+        </div>
+
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+        <!-- Alternativa con componentes de Blade -->
+        {{-- <x-input-error class="mt-2"
+            :messages="$errors->get('imagen')" /> --}}
     </div>
 
     <!-- Envío de formulario -->

@@ -22,8 +22,12 @@
                 :value="old('email')"
                 required
                 autofocus />
-            <x-input-error class="mt-2"
-                :messages="$errors->get('email')" />
+            @error('email')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('email')" /> --}}
         </div>
 
         <div class="my-4 flex items-center justify-between">

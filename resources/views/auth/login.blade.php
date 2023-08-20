@@ -20,8 +20,12 @@
                 required
                 autofocus
                 autocomplete="username" />
-            <x-input-error class="mt-2"
-                :messages="$errors->get('email')" />
+            @error('email')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('email')" /> --}}
         </div>
 
         <!-- Password -->
@@ -35,9 +39,12 @@
                 type="password"
                 required
                 autocomplete="current-password" />
-
-            <x-input-error class="mt-2"
-                :messages="$errors->get('password')" />
+            @error('password')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('password')" /> --}}
         </div>
 
         <!-- Remember Me -->

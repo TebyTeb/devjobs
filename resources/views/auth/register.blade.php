@@ -16,8 +16,12 @@
                 required
                 autofocus
                 autocomplete="name" />
-            <x-input-error class="mt-2"
-                :messages="$errors->get('name')" />
+            @error('name')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('name')" /> --}}
         </div>
 
         <!-- Email Address -->
@@ -31,8 +35,12 @@
                 :value="old('email')"
                 required
                 autocomplete="username" />
-            <x-input-error class="mt-2"
-                :messages="$errors->get('email')" />
+            @error('email')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('email')" /> --}}
         </div>
 
         <!-- Rol Select -->
@@ -40,7 +48,8 @@
             <x-input-label for="rol"
                 :value="__('¿Qué tipo de cuenta deseas en DevJobs?')" />
 
-            <select class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full"
+            <select
+                class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
                 id="rol"
                 name="rol">
 
@@ -49,9 +58,12 @@
                 <option value="2">Recruiter - Publicar empleos</option>
 
             </select>
-
-            <x-input-error class="mt-2"
-                :messages="$errors->get('rol')" />
+            @error('rol')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('rol')" /> --}}
         </div>
 
         <!-- Password -->
@@ -65,9 +77,12 @@
                 type="password"
                 required
                 autocomplete="new-password" />
-
-            <x-input-error class="mt-2"
-                :messages="$errors->get('password')" />
+            @error('password')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('password')" /> --}}
         </div>
 
         <!-- Confirm Password -->
@@ -81,9 +96,12 @@
                 type="password"
                 required
                 autocomplete="new-password" />
-
-            <x-input-error class="mt-2"
-                :messages="$errors->get('password_confirmation')" />
+            @error('password_confirmation')
+                <livewire:mostrar-alerta :message="$message" />
+            @enderror
+            <!-- Alternativa con componentes de Blade -->
+            {{-- <x-input-error class="mt-2"
+                :messages="$errors->get('password_confirmation')" /> --}}
         </div>
 
         <div class="my-4 flex items-center justify-center">
