@@ -7,7 +7,7 @@
                 <div class="space-y-3">
 
                     <a class="text-xl font-bold"
-                        href="#">
+                        href="{{route('vacantes.show', $vacante)}}">
                         {{ $vacante->titulo }}
                     </a>
 
