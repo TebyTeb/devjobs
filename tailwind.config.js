@@ -9,6 +9,8 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    theme: defaultTheme,
+
     darkMode: 'class',
 
     plugins: [forms],
