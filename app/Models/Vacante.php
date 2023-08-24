@@ -37,7 +37,7 @@ class Vacante extends Model
     }
     public function candidatos()
     {
-        return $this->hasMany(Candidato::class);
+        return $this->hasMany(Candidato::class)->orderBy('created_at', 'DESC');
     }
     //* Relaciona al creador de la vacante (user_id) con su instancia de User
     public function reclutador()

@@ -18,7 +18,7 @@
 
                 <div class="mt-5 flex flex-col items-stretch gap-3 md:mt-0 md:flex-row">
                     <a class="rounded-lg bg-slate-800 px-4 py-2 text-center text-xs font-bold uppercase text-white"
-                        href="#">Candidatos</a>
+                        href="{{route('candidatos.index', $vacante)}}">{{$vacante->candidatos->count()}} Candidatos</a>
                     <a class="rounded-lg bg-blue-800 px-4 py-2 text-center text-xs font-bold uppercase text-white"
                         href="{{ route('vacantes.edit', $vacante->id) }}">Editar</a>
                     <button class="rounded-lg bg-red-600 px-4 py-2 text-center text-xs font-bold uppercase text-white"
